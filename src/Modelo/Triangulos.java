@@ -6,7 +6,23 @@ public class Triangulos extends absPropriedades {
         super(L1, L2, L3);
     }
 
+    /**
+     *
+     */
+    @Override
     public void verificar() {
-        return;
+        mensagem = "";
+
+        if (L1 <= 0 || L2 <= 0 || L3 <= 0) {
+            mensagem = "Erro de validação.";
+        } else if (L1 >= L2 + L3 || L2 >= L1 + L3 || L3 >= L1 + L2) {
+            mensagem = "Não é um triângulo.";
+        } else if (L1.equals(L2) && L2.equals(L3)) {
+            mensagem = "Triângulo Equilátero.";
+        } else if (L1.equals(L2) || L1.equals(L3) || L2.equals(L3)) {
+            mensagem = "Triângulo Isósceles.";
+        } else {
+            mensagem = "Triângulo Escaleno.";
+        }
     }
 }
